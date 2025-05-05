@@ -24,11 +24,11 @@ contract DeploySmartSession is Script {
 
         vm.startBroadcast(privKey);
 
-        //_deploySmartSession();
-        //_deployUOBuilder();
-        //_deploySubModules();
+        _deploySmartSession();
+        // _deployUOBuilder();
+        // _deploySubModules();
         //_deployWcCosigner();
-        _deployValidators();
+        // _deployValidators();
 
         vm.stopBroadcast();
     }

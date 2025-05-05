@@ -263,7 +263,7 @@ abstract contract SmartSessionBase is ISmartSession, NonceManager {
      * @return permissionIds An array of PermissionId values corresponding to the enabled sessions
      */
     function enableSessions(Session[] calldata sessions) external returns (PermissionId[] memory permissionIds) {
-        return _enableSessions(sessions, true);
+        return _enableSessions(sessions, false);
     }
 
     /**
