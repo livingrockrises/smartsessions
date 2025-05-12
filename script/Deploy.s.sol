@@ -4,7 +4,7 @@ pragma solidity ^0.8.25;
 import "forge-std/Script.sol";
 import "contracts/SmartSession.sol";
 
-import "test/mock/SimpleSigner.sol";
+import "test/mock/SimpleSessionValidator.sol";
 import "contracts/external/policies/UniActionPolicy.sol";
 import "test/mock/UsageLimitPolicy.sol";
 import "test/mock/TimeFramePolicy.sol";
@@ -24,11 +24,11 @@ contract DeploySmartSession is Script {
 
         vm.startBroadcast(privKey);
 
-        //_deploySmartSession();
-        //_deployUOBuilder();
-        //_deploySubModules();
+        _deploySmartSession();
+        // _deployUOBuilder();
+        // _deploySubModules();
         //_deployWcCosigner();
-        _deployValidators();
+        // _deployValidators();
 
         vm.stopBroadcast();
     }
@@ -63,7 +63,7 @@ contract DeploySmartSession is Script {
     }
 
     function _deploySubModules() public returns (address) {
-        SimpleSigner ssigner = new SimpleSigner();
+        SimpleSessionValidator ssigner = new SimpleSessionValidator();
         console2.log("Simple Signer Address ", address(ssigner));
 
         UniActionPolicy uniActionPolicy = new UniActionPolicy();
